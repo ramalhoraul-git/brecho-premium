@@ -1,0 +1,18 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: #fbf9f5;
+    color: #1c1c1a;
+    font-family: 'Instrument Sans', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: #d4c5ab;
+    color: #1a1a1a;
+  }
+}
