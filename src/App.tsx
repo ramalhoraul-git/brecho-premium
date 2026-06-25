@@ -3,7 +3,7 @@ import {
   Search, ShoppingBag, User2, Heart, Menu, X, ChevronRight, ShieldCheck, Sparkles, BadgeCheck,
   Star, ChevronLeft, Trash2, LayoutDashboard, Archive, Package,
   Users, FileText, HandCoins, CircleDollarSign, BarChart3, Megaphone, Shield, Printer,
-  DatabaseZap, QrCode, Barcode, Tags, CreditCard, ArrowUpRight,
+  Database, QrCode, Barcode, Tags, CreditCard, ArrowUpRight,
   ArrowDownRight, Bell, RefreshCw, Zap, CheckCircle2, AlertTriangle, Clock3, Camera as CameraIcon
 } from 'lucide-react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell, AreaChart, Area } from 'recharts'
