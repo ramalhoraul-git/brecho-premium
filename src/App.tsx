@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import {
   Search, ShoppingBag, User2, Heart, Menu, X, ChevronRight, ShieldCheck, Sparkles, BadgeCheck,
   Star, ChevronLeft, Trash2, LayoutDashboard, Archive, Package,
-  Users, FileText, HandCoins, CircleDollarSign, BarChart3, Megaphone, Shield, Printer,
+  Users, FileText, Coins, CircleDollarSign, BarChart3, Megaphone, Shield, Printer,
   Database, QrCode, Tags, CreditCard, ArrowUpRight,
   ArrowDownRight, Bell, RefreshCw, Zap, CheckCircle2, AlertTriangle, Clock3, Camera as CameraIcon
 } from 'lucide-react'
@@ -746,7 +746,7 @@ function AdminShell({onCloseStore}:{onCloseStore:()=>void}){
     {name:'PDV / Vendas', icon:<CreditCard size={16}/>},
     {name:'Estoque Inteligente', icon:<Archive size={16}/>},
     {name:'Produtos & Catálogo', icon:<Package size={16}/>},
-    {name:'Consignado', icon:<HandCoins size={16}/>},
+    {name:'Consignado', icon:<Coins size={16}/>},
     {name:'Fornecedores', icon:<Users size={16}/>},
     {name:'Clientes · CRM', icon:<User2 size={16}/>},
     {name:'Financeiro BI', icon:<CircleDollarSign size={16}/>},
