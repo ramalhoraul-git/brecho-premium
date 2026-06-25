@@ -3,7 +3,7 @@ import {
   Search, ShoppingBag, User2, Heart, Menu, X, ChevronRight, ShieldCheck, Sparkles, BadgeCheck,
   Star, ChevronLeft, Trash2, LayoutDashboard, Archive, Package,
   Users, FileText, HandCoins, CircleDollarSign, BarChart3, Megaphone, Shield, Printer,
-  Database, QrCode, Barcode, Tags, CreditCard, ArrowUpRight,
+  Database, QrCode, Tags, CreditCard, ArrowUpRight,
   ArrowDownRight, Bell, RefreshCw, Zap, CheckCircle2, AlertTriangle, Clock3, Camera as CameraIcon
 } from 'lucide-react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell, AreaChart, Area } from 'recharts'
@@ -657,7 +657,7 @@ function StoreFront({onOpenPanel}:{onOpenPanel:()=>void}) {
                 <div className="mt-2 text-zinc-600">Condição: <b>{selected.condition}</b> · {conditionMeta[selected.condition].desc}</div>
                 <div className="mt-2 flex gap-3">
                   <span className="flex items-center gap-1"><QrCode size={14}/> Rastreabilidade</span>
-                  <span className="flex items-center gap-1"><Barcode size={14}/> {selected.id}</span>
+                  <span className="flex items-center gap-1"><QrCode size={14}/> {selected.id}</span>
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-3 mt-4 text-[12px]">
@@ -930,7 +930,7 @@ function ModulePDV(){
           <div className="text-[11px] bg-[#f2efe3] border px-2 py-1 rounded-full">Venda #4189</div>
         </div>
         <div className="border rounded-[14px] px-3 py-2 flex items-center gap-2 mb-4">
-          <Barcode size={16} className="text-zinc-500"/>
+          <QrCode size={16} className="text-zinc-500"/>
           <input className="flex-1 outline-none text-[14px]" placeholder="Ler código de barras / QR · CUR-xxxx"/>
           <button className="text-[12px] border px-3 py-1.5 rounded-full">Buscar</button>
         </div>
