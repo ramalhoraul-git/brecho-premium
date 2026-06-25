@@ -621,7 +621,7 @@ function StoreFront({onOpenPanel}:{onOpenPanel:()=>void}) {
           <div className="flex items-center gap-4">
             <span>Hospedado Vercel · Supabase PostgreSQL</span>
             <span className="flex items-center gap-1"><ShieldCheck size={14}/> LGPD</span>
-            <span className="flex items-center gap-1"><DatabaseZap size={14}/> Backup automático</span>
+            <span className="flex items-center gap-1"><Database size={14}/> Backup automático</span>
           </div>
         </div>
       </footer>
@@ -754,7 +754,7 @@ function AdminShell({onCloseStore}:{onCloseStore:()=>void}){
     {name:'Marketing', icon:<Megaphone size={16}/>},
     {name:'BI Corporativo', icon:<BarChart3 size={16}/>},
     {name:'Impressão', icon:<Printer size={16}/>},
-    {name:'Backup & LGPD', icon:<DatabaseZap size={16}/>},
+    {name:'Backup & LGPD', icon:<Database size={16}/>},
   ]
 
   return (
@@ -779,7 +779,7 @@ function AdminShell({onCloseStore}:{onCloseStore:()=>void}){
             <div className="bg-[#1c1f1c] border border-white/10 rounded-[14px] px-3 py-3">
               <div className="text-[10px] tracking-widest text-[#d8bf86]">BACKUP INTELIGENTE</div>
               <div className="mt-1 text-[#ece2cf]">Último: hoje 04:12 · OK</div>
-              <div className="text-[11px] mt-1 text-[#bdaa87]">“Seus dados são o patrimônio digital da empresa.”</div>
+              <div className="text-[11px] mt-1 text-[#bdaa87]">"Seus dados são o patrimônio digital da empresa."</div>
             </div>
             <div>Admin: luciana@cura360<br/><span className="text-zinc-400">Administrador Geral</span></div>
           </div>
