@@ -8,7 +8,6 @@ import {
 } from 'lucide-react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar, PieChart, Pie, Cell, AreaChart, Area } from 'recharts'
 
-// ---------- DATA ----------
 type Condition = 'Premium'|'Excelente'|'Muito Bom'|'Bom'|'Outlet'|'Consignado'
 type Product = {
   id: string
@@ -205,7 +204,6 @@ const storeNav = [
   {label:'Acessórios',subs:['Bolsas','Cintos','Bijuterias','Joias','Relógios','Óculos']},
 ]
 
-// ---------- Utils ----------
 const brl = (n:number)=> n.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})
 const conditionMeta: Record<Condition,{color:string; bg:string; border:string; desc:string}> = {
   Premium:{color:'#132117',bg:'#e9f3ee',border:'#b6d9c7',desc:'Peça única ou raríssima'},
@@ -216,7 +214,6 @@ const conditionMeta: Record<Condition,{color:string; bg:string; border:string; d
   Consignado:{color:'#3b2d5b',bg:'#f2eefd',border:'#d5caff',desc:'Venda consignada'}
 }
 
-// ---------- STOREFRONT ----------
 function StoreHeader({onCart, cartCount, onTogglePanel, onSearch}:{onCart:()=>void;cartCount:number;onTogglePanel:()=>void; onSearch:(s:string)=>void}) {
   const [open,setOpen]=useState(false)
   const [q,setQ]=useState('')
@@ -346,7 +343,6 @@ function HeroCarousel(){
     <section className="max-w-[1280px] mx-auto px-5 sm:px-10 mt-7 sm:mt-10">
       <div className="grid lg:grid-cols-[1.15fr_.85fr] gap-6 items-stretch">
         <div className="relative rounded-[30px] overflow-hidden bg-[#181818] text-[#f3eee4] min-h-[460px] sm:min-h-[550px]">
-          {/* eslint-disable-next-line */}
           <img src={s.img} alt={s.alt} className="absolute inset-0 w-full h-full object-cover opacity-[.72]" />
           <div className="absolute inset-0 bg-[radial-gradient(1200px_700px_at_30%_30%,rgba(20,18,15,.06),rgba(9,9,9,.6)_65%)]" />
           <div className="relative z-10 p-8 sm:p-14 h-full flex flex-col justify-end">
@@ -382,7 +378,6 @@ function HeroCarousel(){
             </div>
           </div>
           <div className="rounded-[30px] overflow-hidden relative min-h-[210px] bg-[#26221c]">
-            {/* eslint-disable-next-line */}
             <img src="https://images.pexels.com/photos/6069079/pexels-photo-6069079.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=900&h=560" className="absolute inset-0 w-full h-full object-cover opacity-80" alt="boutique"/>
             <div className="absolute inset-0" style={{background:'linear-gradient(110deg, rgba(22,17,12,.64), rgba(15,15,15,.22) 55%)'}}/>
             <div className="relative p-7 sm:p-8 text-[#f2e8d3] h-full flex flex-col justify-end">
@@ -407,7 +402,6 @@ function ProductCard({p, onOpen, onAdd}:{p:Product; onOpen:(p:Product)=>void; on
   return (
     <div className="group">
       <div className="relative rounded-[22px] overflow-hidden bg-[#f5f1ea] aspect-[3/4]">
-        {/* eslint-disable-next-line */}
         <img src={p.image} alt={p.name} className="w-full h-full object-cover transition-transform duration-[650ms] group-hover:scale-[1.032]"/>
         <div className="absolute top-3 left-3 flex flex-col gap-1.5">
           {p.new && <div className="text-[10px] tracking-widest bg-white/95 px-2.5 py-1 rounded-full font-[600]">NOVO</div>}
@@ -453,7 +447,6 @@ function CollectionRail(){
       <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
         {cats.map(c=>(
           <div key={c.name} className="group relative rounded-[24px] overflow-hidden h-[258px] bg-zinc-800">
-            {/* eslint-disable-next-line */}
             <img src={c.img} className="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-[1.04]" alt={c.name}/>
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/18 to-transparent"/>
             <div className="absolute bottom-0 left-0 right-0 p-5 text-white">
@@ -467,7 +460,6 @@ function CollectionRail(){
   )
 }
 
-// ---------- Main Store Page ----------
 function StoreFront({onOpenPanel}:{onOpenPanel:()=>void}) {
   const [search,setSearch]=useState('')
   const [selected,setSelected]=useState<Product|null>(null)
@@ -489,17 +481,11 @@ function StoreFront({onOpenPanel}:{onOpenPanel:()=>void}) {
 
   return (
     <div className="min-h-screen bg-[#fbf9f5] text-[#1c1c1a]" style={{fontFamily:'"Instrument Sans",system-ui,sans-serif'}}>
-      <style>{`
-      @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Sans:wght@400;500;600;700&family=Fragment+Mono:ital@0;1&display=swap');
-      body { background:#fbf9f5; }
-      `}</style>
-
       <StoreHeader onCart={()=>setCartOpen(true)} cartCount={cart.length} onTogglePanel={onOpenPanel} onSearch={setSearch}/>
       <HeroCarousel/>
       <CuradoriaStrip/>
       <CollectionRail/>
 
-      {/* Produtos em destaque */}
       <section className="max-w-[1280px] mx-auto px-5 sm:px-10 mt-14">
         <div className="flex items-end justify-between mb-6">
           <div>
@@ -522,7 +508,6 @@ function StoreFront({onOpenPanel}:{onOpenPanel:()=>void}) {
         </div>
       </section>
 
-      {/* Vitrine editorial */}
       <section className="max-w-[1280px] mx-auto px-5 sm:px-10 mt-20">
         <div className="grid lg:grid-cols-2 gap-10 items-center bg-[#efe8d9] rounded-[30px] p-7 sm:p-12">
           <div>
@@ -554,14 +539,12 @@ function StoreFront({onOpenPanel}:{onOpenPanel:()=>void}) {
               'https://images.pexels.com/photos/17040846/pexels-photo-17040846.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=620&h=740',
               'https://images.pexels.com/photos/6982609/pexels-photo-6982609.jpeg?auto=compress&cs=tinysrgb&fit=crop&w=620&h=740'
             ].map((src,i)=>(
-              // eslint-disable-next-line
               <img key={i} src={src} className="rounded-[20px] object-cover h-[200px] sm:h-[238px] w-full" alt="editorial"/>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Depoimentos */}
       <section className="max-w-[1280px] mx-auto px-5 sm:px-10 mt-20">
         <div className="flex items-end justify-between mb-6">
           <h3 className="text-[30px] sm:text-[35px]" style={{fontFamily:'"Fraunces",serif'}}>Clientes Cura</h3>
@@ -582,7 +565,6 @@ function StoreFront({onOpenPanel}:{onOpenPanel:()=>void}) {
         </div>
       </section>
 
-      {/* Instagram */}
       <section className="max-w-[1280px] mx-auto px-5 sm:px-10 mt-20">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-3">
@@ -603,13 +585,11 @@ function StoreFront({onOpenPanel}:{onOpenPanel:()=>void}) {
             'https://images.pexels.com/photos/3999866/pexels-photo-3999866.jpeg?auto=compress&cs=tinysrgb&w=420&h=420&fit=crop',
             'https://images.pexels.com/photos/15063333/pexels-photo-15063333.jpeg?auto=compress&cs=tinysrgb&w=420&h=420&fit=crop',
           ].map((u,i)=>(
-            // eslint-disable-next-line
             <img key={i} src={u} className="rounded-[18px] object-cover aspect-square" alt="insta"/>
           ))}
         </div>
       </section>
 
-      {/* Footer mapa */}
       <footer className="mt-20 border-t border-[#e3d7c4] bg-[#f6f1e7]">
         <div className="max-w-[1280px] mx-auto px-5 sm:px-10 py-14 grid md:grid-cols-5 gap-10 text-[13.5px] text-[#3a3429] font-[Instrument_Sans]">
           <div className="md:col-span-2">
@@ -646,18 +626,15 @@ function StoreFront({onOpenPanel}:{onOpenPanel:()=>void}) {
         </div>
       </footer>
 
-      {/* WhatsApp */}
       <a href="https://wa.me/5511999999999" className="fixed bottom-5 right-5 z-50 bg-[#1a8f4c] text-white rounded-full px-4 py-3 shadow-xl text-[13px] font-[500] flex items-center gap-2 hover:scale-[1.03] transition-transform">
         <span className="w-2 h-2 bg-white rounded-full animate-pulse"/>
         WhatsApp Cura
       </a>
 
-      {/* Product Modal */}
       {selected && (
         <div className="fixed inset-0 z-[60] bg-black/55 backdrop-blur-[2px] flex items-center justify-center p-4" onClick={()=>setSelected(null)}>
           <div className="bg-[#fdfcf9] rounded-[28px] max-w-[1060px] w-full overflow-hidden grid md:grid-cols-[1.05fr_.95fr]" onClick={e=>e.stopPropagation()}>
             <div className="relative bg-[#f4efe5]">
-              {/* eslint-disable-next-line */}
               <img src={selected.image} className="w-full h-full object-cover max-h-[720px]" alt={selected.name}/>
               <div className="absolute top-4 left-4 flex gap-2">
                 <ConditionPill c={selected.condition}/>
@@ -701,7 +678,6 @@ function StoreFront({onOpenPanel}:{onOpenPanel:()=>void}) {
         </div>
       )}
 
-      {/* Cart Drawer */}
       {cartOpen && (
         <div className="fixed inset-0 z-[70]">
           <div className="absolute inset-0 bg-black/45" onClick={()=>setCartOpen(false)}/>
@@ -714,7 +690,6 @@ function StoreFront({onOpenPanel}:{onOpenPanel:()=>void}) {
               {cart.length===0 && <div className="text-zinc-500 text-[14px]">Sua sacola está vazia.</div>}
               {cart.map((p,i)=>(
                 <div key={i} className="flex gap-3 border-b border-[#eee4d3] pb-3">
-                  {/* eslint-disable-next-line */}
                   <img src={p.image} className="w-[74px] h-[92px] object-cover rounded-xl" alt={p.name}/>
                   <div className="flex-1 text-[13px]">
                     <div className="font-[500]">{p.name}</div>
@@ -738,7 +713,6 @@ function StoreFront({onOpenPanel}:{onOpenPanel:()=>void}) {
   )
 }
 
-// ----------- ADMIN / ERP -----------
 const dashSales = [
   {d:'SEG', v:4300},{d:'TER', v:6100},{d:'QUA', v:5400},{d:'QUI', v:7200},{d:'SEX', v:9800},{d:'SÁB', v:12700},{d:'DOM', v:5400}
 ]
@@ -786,7 +760,6 @@ function AdminShell({onCloseStore}:{onCloseStore:()=>void}){
   return (
     <div className="min-h-screen bg-[#f3f1eb] text-[#1f1e1b]" style={{fontFamily:'"Instrument Sans",system-ui,sans-serif'}}>
       <div className="flex">
-        {/* sidebar */}
         <aside className="w-[272px] bg-[#141615] text-[#e7ddd0] min-h-screen hidden lg:block sticky top-0">
           <div className="px-6 py-6 border-b border-white/10">
             <div className="text-[26px] tracking-[.16em]" style={{fontFamily:'"Fraunces",serif'}}>CURA</div>
@@ -812,9 +785,7 @@ function AdminShell({onCloseStore}:{onCloseStore:()=>void}){
           </div>
         </aside>
 
-        {/* main */}
         <div className="flex-1 min-w-0">
-          {/* topbar */}
           <div className="h-[66px] bg-white/95 border-b border-[#e6ddd0] flex items-center justify-between px-5 sm:px-8 backdrop-blur">
             <div className="flex items-center gap-3">
               <button className="lg:hidden" onClick={onCloseStore}><Menu size={20}/></button>
@@ -833,7 +804,6 @@ function AdminShell({onCloseStore}:{onCloseStore:()=>void}){
             </div>
           </div>
 
-          {/* content */}
           <div className="p-5 sm:p-8">
             {module==='Dashboard Executivo' && <ModuleDashboard/>}
             {module==='PDV / Vendas' && <ModulePDV/>}
@@ -968,7 +938,6 @@ function ModulePDV(){
           {cart.map(p=>(
             <div key={p.id} className="flex items-center justify-between border-b border-[#f0e5d2] pb-3">
               <div className="flex items-center gap-3">
-                {/* eslint-disable-next-line */}
                 <img src={p.image} className="w-14 h-16 object-cover rounded-lg" />
                 <div>
                   <div className="text-[13.5px] font-[500]">{p.name}</div>
@@ -1081,7 +1050,6 @@ function ModuleProducts(){
           <div className="text-[11.5px] text-zinc-600 mb-2">Fotos & Vídeos · arrastar e soltar · ImgBB integrado</div>
           <div className="grid grid-cols-5 gap-3">
             {PRODUCTS.slice(0,4).map(p=>(
-              // eslint-disable-next-line
               <img key={p.id} src={p.image} className="w-full h-[94px] object-cover rounded-[12px] border" alt="up"/>
             ))}
             <div className="h-[94px] border-2 border-dashed border-[#d5c39e] rounded-[12px] flex items-center justify-center text-[11px] text-zinc-500">+ Upload</div>
@@ -1382,14 +1350,13 @@ function ModuleBackup(){
       </div>
       <div className="bg-[#fdf6e6] border border-[#e9d29b] rounded-[22px] p-5">
         <div className="text-[14px] font-[600] text-[#6b4a14]">Mensagem institucional</div>
-        <p className="mt-2 text-[13.5px] text-[#5a4220]">“Seus dados são o patrimônio digital da empresa. Mantenha sempre uma cópia segura.”</p>
+        <p className="mt-2 text-[13.5px] text-[#5a4220]">"Seus dados são o patrimônio digital da empresa. Mantenha sempre uma cópia segura."</p>
         <div className="mt-4 text-[12px] text-zinc-700">Status: <span className="text-emerald-700 font-[600]">✓ Integridade verificada</span><br/>Última verificação: hoje 14:18 · 1.284 produtos · 1.420 clientes</div>
       </div>
     </div>
   )
 }
 
-// --------- Root ----------
 export default function App(){
   const [mode,setMode] = useState<'store'|'admin'>('store')
   return mode==='store'
